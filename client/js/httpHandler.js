@@ -17,13 +17,32 @@
     $.ajax({
       type: 'POST',
       data: formData,
-      url: 'FILL_ME_IN',
+      url: 'http://127.0.0.1:3000',
       cache: false,
       contentType: false,
       processData: false,
       success: () => {
         // reload the page
         window.location = window.location.href;
+      }
+    });
+  };
+
+///////////////////////////
+
+module.exports.getRandomCommand = () => {
+
+    $.ajax({
+      type: 'GET',
+      data: formData,
+      url: 'http://127.0.0.1:3000',
+      cache: false,
+      contentType: false,
+      processData: false,
+      success: (res) => {
+        // reload the page
+        console.log("Lets go" + res)
+        SwimTeam.move(res);
       }
     });
   };
